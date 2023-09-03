@@ -1,0 +1,6 @@
+{
+  "name": "CommonHeaders",
+  "version": "1.0.0",
+  "authors": "bezalel6",
+  "description": "Common header files for my ESP32 projects."
+}
