@@ -2,5 +2,13 @@
   "name": "CommonHeaders",
   "version": "1.0.0",
   "authors": "bezalel6",
-  "description": "Common header files for my ESP32 projects."
+  "description": "Common header files for my ESP32 projects.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bezalel6/CommonHeaders"
+  },
+  "frameworks": "arduino",
+  "platforms": "raspberrypi, espressif8266, espressif32, ststm32",
+  "headers": "logging.h"
 }
+
