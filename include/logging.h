@@ -1,5 +1,7 @@
 #ifndef LOGGING_H_
 #define LOGGING_H_
+#define LOG_INTERVAL 1000  // Time in milliseconds
+
 #define MESAURE_TIME_START unsigned long __start = millis();
 #define MESAURE_TIME_END millis() - __start
 #define LOG_NO_NL(...) \
@@ -42,4 +44,15 @@
         Serial.printf("ASSERTION \"%s\" FAILED!!! %s\nON LINE %d\nIN FILE %s\n\n", #details, #a, __LINE__, __FILENAME__); \
         delay(1000);                                                                                                      \
     }
+
+#define LOG_WITH_INTERVAL(...)                           \
+    do {                                                 \
+        static unsigned long lastLogTime = 0;            \
+        unsigned long currentTime = millis();            \
+        if (currentTime - lastLogTime >= LOG_INTERVAL) { \
+            lastLogTime = currentTime;                   \
+            LOG(__VA_ARGS__);                            \
+        }                                                \
+    } while (0);
+
 #endif  // LOGGING_H_
